@@ -1,6 +1,6 @@
 # HRMS Backend Documentation
 
-*This documentation serves as a detailed overview of the development and maintenance of the HRMS (Human Resource Management System) backend for a private client project. Due to confidentiality reasons, actual files and code snippets cannot be provided; however, abstract descriptions of the processes, technologies, and methodologies utilized are presented herein.*
+*This documentation serves as a detailed overview of the development and maintenance of the HRMS (Human Resource Management System) backend for a private client project. Due to confidentiality reasons, actual files and code snippets cannot be provided; however, abstract descriptions of the processes, technologies, and methodologies utilized are presented herein.The HRMS backend, a critical component of a private client project, is presented in partial form here. Certain essential and private files remain concealed to uphold confidentiality. This documentation offers insights into its development using advanced technologies, ensuring robust functionality while safeguarding sensitive information.*
 
 ## Overview
 
