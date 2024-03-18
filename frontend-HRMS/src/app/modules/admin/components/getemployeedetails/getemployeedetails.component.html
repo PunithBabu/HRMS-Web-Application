@@ -1,0 +1,315 @@
+<h2 style="padding: 10px;background-color: rgb(8, 30, 138);color:greenyellow; border: 1px solid green; text-align: center; min-width:80%; margin-left: 20%;">Employees Details</h2>
+
+<div class="fluid-container" style="padding: 10px; border: 2px solid red;">
+  <button class="btn btn-success mt-3" (click)="showResults = 'dateRange'">Get Employees by Date Range</button>
+  <button class="btn btn-success mt-3" (click)="showResults = 'employeeId'">Get Employees by ID</button>
+  <button class="btn btn-success mt-3" (click)="showResults = 'firstName'">Get Employees by First Name</button>
+  <button class="btn btn-success mt-3" (click)="showResults = 'gender'">Get Employees by Gender</button>
+  <button class="btn btn-success mt-3" (click)="showResults = 'department'">Get Department Employees</button>
+  <button class="btn btn-success mt-3" (click)="showResults = 'departmentManager'">Show Department Managers</button>
+  <button class="btn btn-success mt-3" (click)="showResults = 'titlesByTitle'">Fetch Employees by Title</button>
+  <button class="btn btn-success mt-3" (click)="showResults = 'titlesByEmpNo'">Fetch Employee title by EmpNo</button>
+  <button class="btn btn-success mt-3" (click)="showResults = 'genderCount'">Gender Count</button>
+
+  <div *ngIf="showResults === 'dateRange'">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="startYear">Start Year:</label>
+          <input type="number" id="startYear" class="form-control" [(ngModel)]="startYear" min="1900" max="2023">
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="endYear">End Year:</label>
+          <input type="number" id="endYear" class="form-control" [(ngModel)]="endYear" min="1900" max="2050">
+        </div>
+      </div>
+    </div>
+
+    <button class="btn btn-primary" (click)="getEmployeesByHireDateRange()">Get Employees</button>
+
+    <table class="table mt-3" *ngIf="isYearValid()">
+      <thead>
+        <tr>
+          <th>Employee Number</th>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Hire Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let employee of employees">
+          <td>{{ employee.empNo }}</td>
+          <td>{{ employee.firstName }}</td>
+          <td>{{ employee.lastName }}</td>
+          <td>{{ employee.hireDate | date }}</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="error-message" *ngIf="!isYearValid()">Entered year is not valid.</div>
+  </div>
+
+  <div *ngIf="showResults === 'employeeId'">
+    <h3>Employee by ID</h3>
+    <div class="form-group">
+      <label for="employeeId">Employee ID:</label>
+      <input type="number" id="employeeId" class="form-control" [(ngModel)]="employeeId">
+      <button class="btn btn-primary" (click)="getEmployeeById()">Get Employee by EmpNo</button>
+      <div class="alert alert-danger" *ngIf="invalidEmpNo">Invalid Employee Number</div>
+    </div>
+
+    <table class="table mt-3" *ngIf="employee && !invalidEmpNo">
+      <thead>
+        <tr>
+          <th>Employee ID</th>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Birth Date</th>
+          <th>Hire Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>{{ employee.empNo }}</td>
+          <td>{{ employee.firstName }}</td>
+          <td>{{ employee.lastName }}</td>
+          <td>{{ employee.birthDate | date }}</td>
+          <td>{{ employee.hireDate | date }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="showResults === 'firstName'">
+    <h3>Employees by First Name</h3>
+    <div class="form-group">
+      <label for="firstName">First Name:</label>
+      <input type="text" id="firstName" class="form-control" [(ngModel)]="firstName">
+      <button class="btn btn-primary" (click)="getEmployeesByFirstName()">Get Employees with First Name</button>
+    </div>
+
+    <table class="table mt-3" *ngIf="!invalidFirstName && employees.length > 0">
+      <thead>
+        <tr>
+          <th>Employee ID</th>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Birth Date</th>
+          <th>Hire Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let employee of employees">
+          <td>{{ employee.empNo }}</td>
+          <td>{{ employee.firstName }}</td>
+          <td>{{ employee.lastName }}</td>
+          <td>{{ employee.birthDate | date }}</td>
+          <td>{{ employee.hireDate | date }}</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="alert alert-danger" *ngIf="invalidFirstName">Invalid First Name</div>
+  </div>
+
+  <div *ngIf="showResults === 'gender'">
+    <div class="form-group mt-3">
+      <h3>Employees by Gender</h3>
+      <label for="gender">Select Gender:</label>
+      <select id="gender" class="form-control" [(ngModel)]="selectedGender">
+        <option value="M">Male</option>
+        <option value="F">Female</option>
+      </select>
+      <button class="btn btn-primary" (click)="getEmployeesByGender()">Get Employees by Gender</button>
+      
+    </div>
+
+    <table class="table mt-3" *ngIf="employees.length > 0">
+      <thead>
+        <tr>
+          <th>Employee ID</th>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Birth Date</th>
+          <th>Hire Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let employee of employees">
+          <td>{{ employee.empNo }}</td>
+          <td>{{ employee.firstName }}</td>
+          <td>{{ employee.lastName }}</td>
+          <td>{{ employee.birthDate | date }}</td>
+          <td>{{ employee.hireDate | date }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="showResults === 'department'">
+    <div class="container mt-3">
+      <h3>Department Employees</h3>
+      <div class="form-group">
+        <label for="deptNo">Department Number:</label>
+        <select id="deptNo" class="form-control" [(ngModel)]="deptNo">
+          <option value="">Select Department Number</option>
+          <option *ngFor="let department of departments" [value]="department.dept_no">{{ department.dept_no }}</option>
+        </select>
+      </div>
+      <button class="btn btn-primary" (click)="getDepartmentEmployeesByDeptNo()">Get Department Employees</button>
+      <table class="table" *ngIf="departmentEmployees">
+        <thead>
+          <tr>
+            <th>Employee Number</th>
+            <th>First Name</th>
+            <th>Department Number</th>
+            <th>Department Name</th>
+            <th>From Date</th>
+            <th>To Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let departmentEmployee of departmentEmployees">
+            <td>{{ departmentEmployee.employee.empNo }}</td>
+            <td>{{ departmentEmployee.employee.firstName }}</td>
+            <td>{{ departmentEmployee.department.dept_no }}</td>
+            <td>{{ departmentEmployee.department.dept_name }}</td>
+            <td>{{ departmentEmployee.fromDate | date }}</td>
+            <td>{{ departmentEmployee.toDate | date }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div *ngIf="showResults === 'departmentManager'">
+    <div class="container mt-3">
+      <h3>Department Managers</h3>
+      <button class="btn btn-primary" (click)="getAllDepartmentManagers()">Show Department Managers</button>
+      <table class="table" *ngIf="departmentManager">
+        <thead>
+          <tr>
+            <th>Employee Number</th>
+            <th>Manager Name</th>
+            <th>Department Number</th>
+            <th>Department Name</th>
+            <th>From Date</th>
+            <th>To Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let depman of departmentManager">
+            <td>{{ depman.department.dept_no }}</td>
+            <td>{{ depman.department.dept_name }}</td>
+            <td>{{ depman.employee.empNo }}</td>
+            <td>{{ depman.employee.firstName }}</td>
+            <td>{{ depman.fromDate }}</td>
+            <td>{{ depman.toDate }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div *ngIf="showResults === 'titlesByTitle'">
+    <div class="container mt-3">
+      <h2>Fetch employees by Title</h2>
+      <form (submit)="getTitlesByTitle()">
+        <div class="form-group">
+          <label for="title">Title:</label>
+          <select id="title" name="title" class="form-control" [(ngModel)]="title" required>
+            <option value="">Select Title</option>
+            <option value="Senior Engineer">Senior Engineer</option>
+            <option value="Staff">Staff</option>
+            <option value="Engineer">Engineer</option>
+            <option value="Senior Staff">Senior Staff</option>
+            <option value="Assistant Engineer">Assistant Engineer</option>
+            <option value="Technique Leader">Technique Leader</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Get Employee by Title</button>
+      </form>
+
+      <div *ngIf="titles.length > 0">
+        <h3>Titles:</h3>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Employee number</th>
+              <th>First Name</th>
+              <th>Last Name</th>
+              <th>Title</th>
+              <th>From Date</th>
+              <th>To Date</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let title of titles">
+              <td>{{title.employee.empNo}}</td>
+              <td>{{title.employee.firstName}}</td>
+              <td>{{title.employee.lastName}}</td>
+              <td>{{ title.title }}</td>
+              <td>{{ title.fromDate | date }}</td>
+              <td>{{ title.toDate | date }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="showResults === 'titlesByEmpNo'">
+    <div class="container mt-3">
+      <h2>Fetch Employee Title by EmpNo</h2>
+      <form (submit)="getTitlesByEmpNo()">
+        <div class="form-group">
+          <label for="empNo">EmpNo:</label>
+          <input type="number" id="empNo" name="empNo" class="form-control" [(ngModel)]="empNo" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Fetch Titles</button>
+      </form>
+
+      <div *ngIf="titles.length > 0">
+        <h3>Titles:</h3>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Employee number</th>
+              <th>First Name</th>
+              <th>Last Name</th>
+              <th>Title</th>
+              <th>From Date</th>
+              <th>To Date</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let title of titles">
+              <td>{{title.employee.empNo}}</td>
+              <td>{{title.employee.firstName}}</td>
+              <td>{{title.employee.lastName}}</td>
+              <td>{{ title.title }}</td>
+              <td>{{ title.fromDate | date }}</td>
+              <td>{{ title.toDate | date }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="alert alert-danger" *ngIf="invalidEmpNo">Invalid Employee</div>
+    </div>
+  </div>
+  <div *ngIf="showResults === 'genderCount'">
+    <div class="form-group mt-3">
+      <h3>Employees by Gender</h3>
+      <label for="gender">Select Gender:</label>
+      <select id="gender" class="form-control" [(ngModel)]="selectedGender">
+        <option value="M">Male</option>
+        <option value="F">Female</option>
+      </select>
+      <button class="btn btn-primary" (click)="getGenderCount()">Get Employees by Gender</button>
+    </div>
+    <b style="color:red">Gender Count: {{ genderCount }}</b>
+     <!-- Display the gender count -->
+  </div>
+</div>

@@ -1,0 +1,29 @@
+<section class="main" style="position: relative; left: 5%; width: 800px;">
+  <div class="main-top">
+    <h1 >Update Department-Manager</h1>
+  </div>
+
+<div class="form-group">
+  <div class="users">
+    <div class="card">
+      <input type="number" id="empNo" name="empNo" [(ngModel)]="empNo" class="form-control" required>
+      <div *ngIf="isEmpNoInvalid" class="text-danger">Entered employee number is not valid</div>
+      <!-- <button>Employee Number</button> -->
+    </div>
+  </div>
+
+</div>
+
+<h3>Department Manager</h3>
+<div class="form-group" style="padding: 10px;">
+  <label for="fromDate">From Date:</label>
+  <input type="date" id="fromDate" class="form-control border-0 table-bordered" [(ngModel)]="departmentManager.fromDate" name="fromDate" class="form-control" required>
+</div>
+<div class="form-group">
+  <label for="toDate">To Date:</label>
+  <input type="date" id="toDate" class="form-control border-0 border-bottom" [(ngModel)]="departmentManager.toDate" name="toDate" class="form-control" required>
+</div>
+
+<button type="button" class="btn btn-danger" style="padding: 10px;" (click)="addExistingEmployeeToDepartmentManager()">Add Employee to Department Manager</button>
+
+</section>

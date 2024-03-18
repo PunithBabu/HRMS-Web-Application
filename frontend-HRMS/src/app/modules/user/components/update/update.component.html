@@ -1,0 +1,58 @@
+<section class="main" style="width: 100%;"> 
+  <div class="main-top"> 
+    <h1 >Update Profile</h1>
+  </div>
+
+  <form [formGroup]="employeeForm" (ngSubmit)="updateEmployeeFrontEnd()" class="border p-3">
+
+    <div class="mb-3">
+
+      <label for="firstName" class="form-label">First Name:</label>
+
+      <input type="text" id="firstName" formControlName="firstName" class="form-control" [class.is-invalid]="employeeForm.get('firstName')?.invalid && employeeForm.get('firstName')?.touched">
+
+      <div class="invalid-feedback" *ngIf="employeeForm.get('firstName')?.invalid && employeeForm.get('firstName')?.touched">
+
+        First Name is required and must be at least 4 characters long and contain only alphabetic characters.
+
+      </div>
+
+    </div>
+
+    <div class="mb-3">
+
+      <label for="lastName" class="form-label">Last Name:</label>
+
+      <input type="text" id="lastName" formControlName="lastName" class="form-control" [class.is-invalid]="employeeForm.get('lastName')?.invalid && employeeForm.get('lastName')?.touched">
+
+      <div class="invalid-feedback" *ngIf="employeeForm.get('lastName')?.invalid && employeeForm.get('lastName')?.touched">
+
+        Last Name is required and must be at least 4 characters long and contain only alphabetic characters.
+
+      </div>
+
+    </div>
+
+   
+
+    <div class="mb-3">
+
+      <label for="password" class="form-label">Password:</label>
+
+      <input type="password" id="password" formControlName="password" class="form-control">
+
+    </div>
+
+    <div class="mb-3">
+
+      <label for="birthDate" class="form-label">Birth Date:</label>
+
+      <input type="date" id="birthDate" formControlName="birthDate" class="form-control">
+
+    </div>
+
+    <button type="submit" class="btn btn-success" style="padding: 10px; width: 100%;">Update Details</button>
+
+  </form>
+
+</section>

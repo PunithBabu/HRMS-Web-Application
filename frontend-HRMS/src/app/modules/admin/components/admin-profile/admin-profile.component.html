@@ -1,0 +1,98 @@
+<h1 style="padding: 10px; color: greenyellow; border: 1px solid black; text-align: center;">UPDATE</h1>
+<section class="main">
+  <h5 style="background-color: aquamarine; padding: 10px; color: rgb(0, 0, 0); ">Employee Details</h5>
+<div class="card">
+  <div class="row no-gutters">
+    <div class="col-md-2">
+      <img src="../../../../../assets/profile.png" class="card-img" alt="Image"><br><br><h3 style="color: rgb(77, 204, 46); text-align: center;">{{ employee.firstName +" "+ employee.lastName }}</h3>
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+
+
+        <table class="table table-hover table-bordered">
+      
+          <tbody>
+      
+            <tr>
+      
+              <td><strong>Employee No:</strong></td>
+      
+              <td>{{ employee.empNo }}</td>
+      
+            </tr>
+      
+            <tr>
+      
+              <td><strong>First Name:</strong></td>
+      
+              <td>{{ employee.firstName }}</td>
+      
+            </tr>
+      
+            <tr>
+      
+              <td><strong>Last Name:</strong></td>
+      
+              <td>{{ employee.lastName }}</td>
+      
+            </tr>
+      
+            <tr>
+      
+              <td><strong>Birth Date:</strong></td>
+      
+              <td>{{ employee.birthDate }}</td>
+      
+            </tr>
+      
+            <tr>
+      
+              <td><strong>Hire Date:</strong></td>
+      
+              <td>{{ employee.hireDate }}</td>
+      
+            </tr>
+      
+            <tr>
+      
+              <td><strong>Gender:</strong></td>
+      
+              <td>{{ employee.gender }}</td>
+      
+            </tr>
+      
+            <tr *ngFor="let emp of DeptEmp">
+      
+              <td><strong>Department No:</strong></td>
+      
+              <td>{{ emp.department.dept_no }}</td>
+      
+            </tr>
+      
+            <tr *ngFor="let emp of DeptEmp">
+      
+              <td><strong>Department Name:</strong></td>
+      
+              <td>{{ emp.department.dept_name }}</td>
+      
+            </tr>
+      
+            <!-- <tr *ngFor="let t of titles">
+      
+              <td><strong>Designation:</strong></td>
+      
+              <td>{{ t.title +" ["+ t.fromDate+" to "+t.toDate+"]"}}</td> -->
+      
+            <!-- </tr> -->
+      
+          </tbody>
+      
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+  

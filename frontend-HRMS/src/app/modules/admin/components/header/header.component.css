@@ -1,0 +1,71 @@
+.table{
+    position: absolute;
+    min-width: fit-content;
+ max-width: 20%;
+ max-height: 20%;
+ left: 20%;
+}
+.table, thead, th{
+    color: rgb(51, 0, 255);
+    background-color: aquamarine;
+}
+.table, td{
+    background-color: aqua;
+}
+
+.nav-link:hover{
+    /* background-color: aquamarine; */
+    color: rgb(30, 110, 207);
+    border: 2px solid rgb(241, 238, 238);
+}
+.sidebar-sticky{
+    background-color: aqua;
+}
+.nav-item{
+    border-color: aqua;
+}
+.dropdown-item:hover{
+    color: rgb(255, 255, 255);
+    padding: 5px;
+    font-weight: bold;
+}
+.dropdown-item{
+    position: absolute;
+    bottom: 20%;
+}
+
+/* .icon{
+    width: 20px;
+    /* padding: 50%; */
+    /* color: aqua; */
+/* } */ */
+
+span{
+    color: rgb(10, 255, 206); font-size: larger;
+}
+
+i{
+    color: aqua;
+    padding: 10px;
+}
+span, #signout{
+    font-size: large;
+}
+.my-custom-scrollbar {
+    position: relative;
+    height: 500px;
+    overflow: auto;
+
+    }
+    .table-wrapper-scroll-y {
+    display: block;
+    position: relative;
+    max-width:80%;
+    top: 40%;
+    }
+tbody,tr, td:nth-child(even){
+    background-color: rgba(0, 0, 0,0.5);
+}
+tbody,tr, td:nth-child(odd){
+    background-color: wheat;
+}

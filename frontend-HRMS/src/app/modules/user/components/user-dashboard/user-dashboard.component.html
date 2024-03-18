@@ -1,0 +1,58 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Employees</title>
+</head>
+<body>
+    <div class="container">
+        
+<nav>
+    <ul>
+      <li><a class="logo" routerLink ="./profile">
+        <img src="../../../../../assets/profile.png" style="width:20%; height:20%;">
+        <span class="nav-item" style="font-size: 15px; position: absolute; top: 20px; font-size: small; color: rgb(0, 0, 0);">Welcome, <br><h4 style="font-size: large;"> {{ employee.firstName }}</h4></span>
+        
+      </a></li>
+
+      <li><a class="nav-link" routerLinkActive="active" routerLink="./home">
+          <i class="fa-solid fa-house"></i>
+        <span class="nav-item" >Home</span>
+      </a></li>
+      <li><a class="nav-link" routerLinkActive="active" routerLink="./profile">
+          <i class="fa-solid fa-user"></i>
+        <span class="nav-item">Profile</span>
+      </a></li>
+      <li><a class="nav-link" routerLinkActive="active" routerLink="./elist">
+          <i class="fa-sharp fa-solid fa-user-group"></i>
+        <span class="nav-item" >Employees</span>
+      </a></li>
+      <li><a href="#"class="nav-link" routerLinkActive="active" routerLink="./departmentManager">
+        <i class="fa-solid fa-building-user"></i>
+        <span class="nav-item">Departments</span>
+      </a></li>
+      <li><a class="nav-link" routerLinkActive="active" routerLink="./update">
+          <i class="fa-solid fa-briefcase"></i>
+        <span class="nav-item">Services</span>
+      </a></li>
+      <li><a class="nav-link" routerLinkActive="active" routerLink="./salary">
+        <i class="fa-solid fa-money-bill"></i>
+      <span class="nav-item">Payroll</span>
+    </a></li>
+
+      <li><a class="logout" routerLink="/" (click)="logout()">
+          <i class="fa-solid fa-right-from-bracket"></i>
+        <span class="nav-item">Log out</span>
+      </a></li>
+    </ul>
+  </nav>
+  <div class="container">
+        <router-outlet></router-outlet>
+      </div>
+</div>
+</body>
+</html>
+

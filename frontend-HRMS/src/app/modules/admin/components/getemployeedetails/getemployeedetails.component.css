@@ -1,0 +1,42 @@
+/* Add custom styles here */
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.btn-success {
+  margin-right: 10px;
+  color: green;
+  border: 2px solid black;
+  background-color: aliceblue;
+  
+}
+
+.error-message {
+  color: red;
+  margin-top: 10px;
+}
+
+.alert-danger {
+  color: red;
+  margin-top: 10px;
+}
+
+.table {
+  margin-top: 20px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+/* Optional: Add more custom styles as needed */
+.fluid-container{
+  margin-left: 20%;
+}

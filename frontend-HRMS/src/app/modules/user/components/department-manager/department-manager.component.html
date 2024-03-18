@@ -1,0 +1,100 @@
+<section class="main" style="width: 50vw;">
+<h3 style="padding: 10px; background-color: aquamarine;">Your department details</h3>
+
+
+
+
+<table class="table table-bordered table-striped table-hover">
+
+  <thead>
+
+    <tr>
+
+      <th>Employee Number</th>
+
+      <th>Department Number</th>
+
+      <th>Department Name</th>
+
+    </tr>
+
+  </thead>
+
+  <tbody>
+
+    <tr *ngFor="let t of departmentEmployee">
+
+      <td>{{ t.employee.empNo }}</td>
+
+      <td>{{ t.department.dept_no }}</td>
+
+      <td>{{ t.department.dept_name }}</td>
+
+    </tr>
+
+  </tbody>
+
+</table>
+
+
+
+
+
+
+<br>
+
+<button type="button" class="btn btn-success btn-lg" (click)="showTable()" style="padding: 10px; ">
+
+  Show All Managers
+
+</button>
+
+<br>
+
+<table class="table table-bordered" *ngIf="isTableVisible">
+
+  <thead class="table-dark">
+
+    <tr>
+
+      <th>Department Number</th>
+
+      <th>Department Name</th>
+
+      <th>Employee Number</th>
+
+      <th>Employee Name</th>
+
+      <th>From Date</th>
+
+      <th>To Date</th>
+
+    </tr>
+
+  </thead>
+
+
+
+
+  <tbody>
+
+    <tr *ngFor="let depman of departmentManager">
+
+      <td>{{ depman.department.dept_no }}</td>
+
+      <td>{{ depman.department.dept_name }}</td>
+
+      <td>{{ depman.employee.empNo }}</td>
+
+      <td>{{ depman.employee.firstName +" "+ depman.employee.lastName}}</td>
+
+      <td>{{ depman.fromDate }}</td>
+
+      <td>{{ depman.toDate }}</td>
+
+    </tr>
+
+  </tbody>
+
+</table>
+</section>

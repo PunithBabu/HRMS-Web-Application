@@ -1,0 +1,47 @@
+<section class="main" style="width: 100%;"> 
+  <div class="main-top"> 
+    <h1 >Salary Slip</h1>
+  </div>
+
+  <section class="employee">
+    <div class="employee-list">
+  <table class="table" id="salaryTable">
+
+    <thead  id="salaryTable">
+
+      <tr>
+
+        <th scope="col">EmpNo</th>
+
+        <th scope="col">Salary</th>
+
+        <th scope="col">From Date</th>
+
+        <th scope="col">To Date</th>
+
+      </tr>
+
+    </thead>
+
+    <tbody>
+
+      <tr *ngFor="let t of salaryby">
+
+        <td>{{t.employee.empNo}}</td>
+
+        <td>{{ t.salary }}</td>
+
+        <td>{{ t.fromDate }}</td>
+
+        <td>{{ t.toDate }}</td>
+
+      </tr>
+
+    </tbody>
+
+  </table>
+  <button (click)="downloadTable()" class="btn btn-success" style="padding: 10px;">Download Pay Slip</button>
+    </div>
+  </section>
+</section> 
+

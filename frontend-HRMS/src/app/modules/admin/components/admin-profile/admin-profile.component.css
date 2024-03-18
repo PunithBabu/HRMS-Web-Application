@@ -1,0 +1,42 @@
+.container {
+    display: flex;
+    justify-content: center; /* Align items in the center horizontally */
+    align-items: center; /* Align items in the center vertically */
+  }
+  section{
+    margin-left: 10%;
+    margin-top: 4%;
+  }
+  img{
+    margin-top: 40%;
+    padding-left: 10px;
+  }
+  .card-title{
+    color: green;
+    font-size: larger;
+    font-weight: bolder;
+  }
+  table.table{
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 15px;
+    min-width: 100%;
+    overflow: hidden;
+    border-radius: 5px 5px 0 0;
+  }
+  table thead tr{
+    color: #fff;
+    background: #34AF6D;
+    text-align: left;
+    font-weight: bold;
+  }
+  .table th,
+  .table td{
+    padding: 12px 15px;
+  }
+  .table tbody tr{
+    border-bottom: 1px solid #ddd;
+  }
+  .table tbody tr:nth-of-type(odd){
+    background: #f3f3f3;
+  }

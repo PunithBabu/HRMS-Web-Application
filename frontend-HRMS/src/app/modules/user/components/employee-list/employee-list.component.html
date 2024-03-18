@@ -1,0 +1,117 @@
+
+
+<section class="main" style="position: relative; left: 5%; width: 800px;">
+    <div class="main-top">
+      <h1 >Search</h1>
+    </div>
+    <div class="users">
+      <div class="card">
+        <div class="container container-sm">
+      
+          <input type="text" class="form-control" name="getEmployeeDetailsByEmpNo" [(ngModel)]="employeeObj.empNo" placeholder="Enter Employee Number" /><br>
+      
+          <input type="submit" class="btn btn-success" style="padding: 10px; width: 100%;" (click)="getEmployeeDetailsByEmpNo()" />
+      
+      </div>
+      </div>
+      <!-- <div class="card">
+          <input type="text" placeholder="Enter Date">
+        <button>Search By Date</button>
+      </div>
+      <div class="card border-warning">
+          <input type="text" placeholder="Enter Date">
+        <button>Search By Name</button>
+      </div>
+      <div class="card">
+          <input type="text" placeholder="Enter Date">
+        <button>Search By Employee Number</button>
+      </div> -->
+    </div>
+
+    <section class="employee">
+      <div class="employee-list">
+        <h1 style="background-color: aquamarine; padding: 10px;">Employee List</h1>
+        <table class="table" >
+          <thead >
+            <tr>
+              <th>Employee Number</th>
+
+              <th>Birth Date</th>
+              
+              <th>First Name</th>
+              
+              <th>Last Name</th>
+              
+              <th>Gender</th>
+              
+              <th>Hire Date</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let employee of employeeList">
+
+              <td>{{employee.empNo}}</td>
+              <td>{{employee.birthDate}}</td>
+              <td>{{employee.firstName}}</td>
+              <td>{{employee.lastName}}</td>
+              <td>{{employee.gender}}</td>
+              <td>{{employee.hireDate}}</td>
+          </tr>
+          </tbody>
+
+        </table>
+        <div style="display:flex; justify-content:center;align-items:center">
+
+          <pagination-controls  
+    
+          previousLable = "Prev"
+    
+          nextLable = "Next"
+    
+          (pageChange)="onTableDataChange($event)"
+    
+          >
+    
+          </pagination-controls>
+      </div>
+      </div>
+    </section>
+
+  </section>
+
+
+    
+
+
+<!-- <th>Employee Number</th>
+
+<th>Birth Date</th>
+
+<th>First Name</th>
+
+<th>Last Name</th>
+
+<th>Gender</th>
+
+<th>Hire Date</th> -->
+
+
+
+<!-- <tr *ngFor="let employee of employeeList">
+
+
+
+
+  <td>{{employee.empNo}}</td>
+
+  <td>{{employee.birthDate}}</td>
+
+  <td>{{employee.firstName}}</td>
+
+  <td>{{employee.lastName}}</td>
+
+  <td>{{employee.gender}}</td>
+
+  <td>{{employee.hireDate}}</td>
+
+</tr> -->

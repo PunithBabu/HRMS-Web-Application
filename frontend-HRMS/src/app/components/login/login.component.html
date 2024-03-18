@@ -1,0 +1,138 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-info">
+        <a class="navbar-brand" href="#" style="font-weight: bolder;font-size: larger; margin-left: 2%;"><img class="img1" src="../../../assets/img1.png" width="50px" height="50px" style="margin-right: 8px;"> Human Resource Management</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </nav>
+      <br>
+    <div class="container vh-100" style="width: 40%; border-radius: 20%; ">
+        <div class="right">
+        <div class="row justify-content-center h-100">
+            <div class="card my-auto shadow" style="border: 2px solid rgb(0, 0, 0); border-radius: 1px; background-color: rgb(0, 0, 0,0.5);">
+                <div class="card-body px-5">
+                    <div class="text-center">
+                        <i class="fa-solid fa-lock"></i>
+                    </div>
+                    <div class="text-center">
+                        <h4 style="color: rgb(255, 255, 255);">USER</h4>
+                    </div>
+                  <form [formGroup]="loginForm" (ngSubmit)="Submit()" >   
+                        <div class="form-group">
+                            <input type="email" id="email" placeholder="Email" class="form-control" formControlName="email"
+                                name="email" /><br>
+                        </div>
+                        <div class="form-group">
+                            <input type="password" id="password" placeholder="Password" class="form-control"
+                                formControlName="password" name="password" /><br>
+                        </div>
+                        <input type="submit" class="btn btn-primary w-100" value="Login" name="" >
+                  
+                     </form> 
+                </div>
+                <div style="margin-bottom: 5%; text-decoration: none;">
+                    <a routerLink="../forgot-password"  style="text-decoration: none;">Forgot Password?</a>
+                    <a routerLink="../register" style="text-decoration: none; float: right;">Register</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    </div>
+
+    </body>
+</html>
+  
+  -->
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" >
+        <a class="navbar-brand" href="#" style="font-weight: bolder;font-size: larger; margin-left: 2%; color: aliceblue;"><img class="img1" src="../../../assets/img1.png" width="50px" height="50px" style="margin-right: 8px; color: aliceblue;"> Human Resource Management</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </nav>
+      <div class="carousel-inner">
+        <div class="carousel-item active" >
+          <img  class="fit" src="../../../assets/3.jpg" alt="Slide 1" >
+        </div>
+        <div class="carousel-item">
+          <img  class="fit" src="../../../assets/3.jpg" alt="Slide 2">
+        </div>
+        <div class="carousel-item">
+          <img  class="fit" src="../../../assets/3.jpg" alt="Slide 3">
+        </div>
+      </div>
+    <!-- <button type="button" (click)="disableForm"></button> -->
+    <div class="d-flex justify-content-center align-items-center ">
+    <div class="container">
+
+        <div class="left" >
+        <div class="row justify-content-center h-100">
+            <!-- <div class="card my-auto shadow">
+                <div class="card-body px-5"> -->
+                    <div class="text-center">
+                        <i class="fa-solid fa-lock"></i>
+                    </div>
+                    <div class="text-center">
+                        <h4 style="color: rgb(47, 255, 5);">EMPLOYEE</h4>
+                    </div>
+                   
+                    <!-- <p style="color: lightslategray; text-align: center;">
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Please enter your login
+                        details&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p> -->
+                  <form [formGroup]="loginForm" (ngSubmit)="Submit()" #myForm="ngForm">                
+                    <input type="email" id="email" formControlName="email" placeholder="Email" class="form-control"><br>
+                    <div *ngIf="loginForm.controls['email'].invalid && loginForm.controls['email'].touched">
+                      <div *ngIf="loginForm.controls['email']" style="font-size:smaller; color: red;">Email is required</div>
+                    </div>
+                    <input type="password" id="password" formControlName="password" placeholder="New Password" class="form-control"><br>
+                    <div *ngIf="loginForm.controls['password'].invalid && loginForm.controls['password'].touched">
+                      <div *ngIf="loginForm.controls['password'].errors?.['required']" style="font-size:smaller; color: red;">Password is required.</div>
+                    </div>
+                        <input type="submit" class="btn btn-primary w-100" value="Login" name=""><br>
+
+                     </form> 
+
+                <div style="margin-bottom: 5%; text-decoration: none;">
+                    <a routerLink="../forgot-password" style="text-decoration: none; text-align: center;">Forgot Password?</a>
+                    <!-- <a routerLink="../register" style="text-decoration: none; float: right;">Register</a> -->
+
+                </div>
+            </div>
+
+                <!-- <div class="ficon">
+                    <i class="fa-brands fa-facebook"></i>
+                    <i class="fa-brands fa-square-instagram"></i>
+                </div> -->
+            </div>
+        <!-- </div>
+        </div> -->
+        <br>
+        <br>
+
+
+    </div>
+
+</div>
+
+    </body>
+</html>
+  
+ 

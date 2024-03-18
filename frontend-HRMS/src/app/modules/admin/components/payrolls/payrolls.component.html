@@ -1,0 +1,53 @@
+
+
+<section class="main" style="position: relative; left: 5%; width: 800px;">
+<h2 class="text-primary">Salary List</h2>
+
+<div class="mb-3">
+  <label for="empNo" class="form-label">Employee Number:</label>
+  <input type="number" id="empNo" name="empNo" class="form-control" [(ngModel)]="selectedEmpNo" (change)="fetchSalariesByEmployee()">
+</div>
+
+<div class="alert alert-danger" *ngIf="invalidEmpNo">Please enter a valid employee number.</div>
+  <div class="main-top">
+<h1>Salary List</h1>
+</div>
+  <section class="employee">
+    <div class="employee-list">
+      <table class="table" >
+        <thead class="bg-primary text-white">
+          <tr>
+            <th>Employee Number</th>
+            <th>Employee Name</th>
+            <th>Email</th>
+            <th>Gender</th>
+            <th>Hire Date</th>
+            <th>From Date</th>
+            <th>To Date</th>
+            <th>Salary</th>
+          </tr>
+        </thead>
+        <tbody *ngIf="!invalidEmpNo">
+          <tr *ngFor="let salary of salaries">
+            <td>{{ salary.employee.empNo }}</td>
+            <td>{{ salary.employee.firstName }} {{ salary.employee.lastName }}</td>
+            <td>{{ salary.employee.email }}</td>
+            <td>{{ salary.employee.gender }}</td>
+            <td>{{ salary.employee.hireDate | date }}</td>
+            <td>{{ salary.fromDate | date }}</td>
+            <td>{{ salary.toDate | date }}</td>
+            <td>{{ salary.salary }}</td>
+          </tr>
+        </tbody>
+
+      </table>
+
+    </div>
+  </section>
+
+</section>
+
+
+  
+
+

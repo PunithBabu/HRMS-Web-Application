@@ -1,0 +1,87 @@
+
+<h1 style="padding: 10px; background-color: rgb(62, 49, 148); border: 1px solid black; text-align: center;">UPDATE</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+
+      <div class="card">
+        <h2>Update Employee</h2>
+        <div class="card-body">
+          <div class="form-group">
+            <label for="empNo">Employee Number:</label>
+            <input type="number" id="empNo" name="empNo" [(ngModel)]="empNo" class="form-control" required>
+            <button type="button" class="btn btn-primary" (click)="getEmployee()">Get Employee Details</button>
+            <div *ngIf="invalidEmpNo" class="text-danger">Invalid employee number</div>
+          </div>
+          <form [formGroup]="employeeForm" (ngSubmit)="updateEmployee()" *ngIf="employee">
+            <div class="form-group">
+              <label for="firstName">First Name:</label>
+              <input type="text" id="firstName" formControlName="firstName" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label for="lastName">Last Name:</label>
+              <input type="text" id="lastName" formControlName="lastName" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label for="birthDate">Birth Date:</label>
+              <input type="date" id="birthDate" formControlName="birthDate" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label for="hireDate">Hire Date:</label>
+              <input type="date" id="hireDate" formControlName="hireDate" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label for="gender">Gender:</label>
+              <select id="gender" formControlName="gender" class="form-control" required>
+                <option value="M">Male</option>
+                <option value="F">Female</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="email">Email:</label>
+              <input type="email" id="email" formControlName="email" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label for="password">Password:</label>
+              <input type="password" id="password" formControlName="password" class="form-control" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Update Employee</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-body">
+          <h2>Update Salary</h2>
+          <div class="form-group">
+            <label for="salary">Salary:</label>
+            <input type="number" id="salary" name="salary" [(ngModel)]="salary.salary" class="form-control" required>
+          </div>
+          <div class="form-group">
+            <label for="toDate">To Date:</label>
+            <input type="date" id="toDate" name="toDate" [(ngModel)]="salary.toDate" class="form-control" required>
+          </div>
+          <button type="button" class="btn btn-primary" (click)="updateSalaryByEmpNo()">Update Salary</button>
+          <h2>Update Title</h2>
+          <div class="form-group">
+            <label for="title">Title:</label>
+            <select id="title" name="title" [(ngModel)]="title.title" class="form-control" required>
+              <option value="Senior Engineer">Senior Engineer</option>
+              <option value="Staff">Staff</option>
+              <option value="Engineer">Engineer</option>
+              <option value="Senior Staff">Senior Staff</option>
+              <option value="Assistant Engineer">Assistant Engineer</option>
+              <option value="Technique Leader">Technique Leader</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="toDate">To Date:</label>
+            <input type="date" id="toDate" name="toDate" [(ngModel)]="title.toDate" class="form-control" required>
+          </div>
+          <button type="button" class="btn btn-primary" (click)="updateTitleByEmpNo()">Update Title</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
